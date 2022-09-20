@@ -1,0 +1,13 @@
+.container {
+  width: 100vw;
+  height: 296px;
+  background-color: var(--profile);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgLeft {
+  padding-top: 3rem;
+}
