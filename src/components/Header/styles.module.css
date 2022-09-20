@@ -1,7 +1,11 @@
 .container {
   width: 100vw;
   height: 296px;
-  background-color: var(--profile);
+  background-color: linear-gradient(
+    180deg,
+    rgba(11, 27, 43, 1) 0%,
+    rgba(20, 88, 156, 1) 100%
+  );
 
   display: flex;
   align-items: center;

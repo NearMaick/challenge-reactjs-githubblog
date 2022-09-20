@@ -1,0 +1,38 @@
+.container {
+  width: 100vw;
+}
+
+.content {
+  background: var(--profile);
+  width: 50rem;
+
+  margin: -6rem auto;
+
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+}
+
+.image {
+  width: 8rem;
+  height: 8rem;
+
+  border-radius: 8px;
+}
+
+.profileContent {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0.5rem 0 0.5rem;
+}
