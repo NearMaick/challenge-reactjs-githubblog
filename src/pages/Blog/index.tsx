@@ -1,3 +1,4 @@
+import { PostCard } from "./components/PostCard";
 import styles from "./styles.module.css";
 
 export function Blog() {
@@ -26,6 +27,23 @@ export function Blog() {
           </div>
         </div>
       </main>
+
+      <div className={styles.postsSearchContainer}>
+        <div className={styles.postsBanner}>
+          <h3>Publicações</h3>
+          <span>6 publicações</span>
+        </div>
+        <input type='text' placeholder='Buscar conteúdo' />
+      </div>
+
+      <div className={styles.postCardContainer}>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </div>
     </div>
   );
 }

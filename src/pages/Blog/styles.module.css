@@ -6,7 +6,7 @@
   background: var(--profile);
   width: 50rem;
 
-  margin: -6rem auto;
+  margin: -4rem auto 1rem;
 
   display: flex;
   align-items: center;
@@ -35,4 +35,38 @@
   justify-content: space-between;
 
   margin: 0.5rem 0 0.5rem;
+}
+
+.postsSearchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.postsBanner {
+  width: 800px;
+  margin: 1rem auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  width: 800px;
+
+  background-color: var(--profile);
+  border: 1px solid var(--border);
+
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.postCardContainer {
+  width: 800px;
+
+  margin: 2rem auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
