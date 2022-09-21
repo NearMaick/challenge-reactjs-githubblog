@@ -1,0 +1,25 @@
+.container {
+  width: 100vw;
+}
+
+.content {
+  background: var(--profile);
+  width: 1120px;
+
+  margin: -4rem auto 1rem;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+}
+
+.postContent {
+  background: var(--profile);
+  width: 1120px;
+
+  margin: 0 auto;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+}

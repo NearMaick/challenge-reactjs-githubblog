@@ -1,11 +1,3 @@
-article {
-  background: var(--post);
-  padding: 2rem;
-  border-radius: 8px;
-
-  line-height: 1.625rem;
-}
-
 .content {
   display: flex;
   justify-content: space-between;

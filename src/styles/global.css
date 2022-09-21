@@ -43,6 +43,13 @@ body {
   max-width: 1120px;
 }
 
+article {
+  padding: 2rem;
+  border-radius: 8px;
+
+  line-height: 1.625rem;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
