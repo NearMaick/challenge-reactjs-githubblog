@@ -7,12 +7,12 @@ export function Post() {
   return (
     <div className={styles.container}>
       <main className={styles.content}>
-        <div>
+        <div className={styles.linkContainer}>
           <a href='#'>voltar</a>
           <a href=''>ver no github</a>
         </div>
         <h3>JavaScript data types and data structures</h3>
-        <div>
+        <div className={styles.descriptionContainer}>
           <span>Maick Souza</span>
           <span>Há 1 dia</span>
           <span>5 comentários</span>

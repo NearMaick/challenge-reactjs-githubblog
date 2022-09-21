@@ -7,10 +7,22 @@
   width: 1120px;
 
   margin: -4rem auto 1rem;
-
   padding: 1rem;
-
   border-radius: 8px;
+
+  line-height: 2rem;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionContainer {
+  width: 360px;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .postContent {
