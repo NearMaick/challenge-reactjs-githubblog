@@ -4,6 +4,10 @@ import styles from "./styles.module.css";
 export function Post() {
   const { postId } = useParams();
 
+  // https://api.github.com/users/nearmaick
+  // https://api.github.com/repos/NearMaick/challenge-reactjs-githubblog/issues
+  // https://api.github.com/search/issues?q=Boas%20pr%C3%A1ticas%20repo:NearMaick/challenge-reactjs-githubblog
+
   return (
     <div className={styles.container}>
       <main className={styles.content}>
