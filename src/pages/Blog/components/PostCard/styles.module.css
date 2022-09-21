@@ -1,6 +1,6 @@
 article {
   background: var(--post);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 8px;
 
   line-height: 1.625rem;
@@ -8,5 +8,11 @@ article {
 
 .content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.title {
+  width: 24rem;
 }

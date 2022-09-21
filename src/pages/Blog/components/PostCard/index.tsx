@@ -4,7 +4,9 @@ export function PostCard() {
   return (
     <article>
       <div className={styles.content}>
-        <h2>Tipos de dados e estruturas de dados JavaScript</h2>
+        <h2 className={styles.title}>
+          Tipos de dados e estruturas de dados JavaScript
+        </h2>
         <span>Há 1 dia</span>
       </div>
       <p>
