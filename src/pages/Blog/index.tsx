@@ -10,18 +10,17 @@ interface Profile {
   followers: number;
 }
 
-interface Posts {
-  items: {
-    number: number;
-    title: string;
-    body: string;
-    updated_at: Date;
-  }[];
+export interface Post {
+  id?: number;
+  number: number;
+  title: string;
+  body: string;
+  updated_at: Date;
 }
 
 export function Blog() {
   const [profile, setProfile] = useState({} as Profile);
-  const [posts, setPosts] = useState({} as Posts);
+  const [posts, setPosts] = useState([] as Post[]);
 
   async function loadProfile() {
     const response = await fetch("https://api.github.com/users/nearmaick");
@@ -30,7 +29,11 @@ export function Blog() {
   }
 
   async function loadIssuesPosts() {
-    // const response = await fetch()
+    const response = await fetch(
+      "https://api.github.com/repos/NearMaick/challenge-reactjs-githubblog/issues"
+    );
+    const data = await response.json();
+    setPosts(data);
   }
 
   useEffect(() => {
@@ -67,13 +70,18 @@ export function Blog() {
       </div>
 
       <div className={styles.postCardContainer}>
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {posts.map(({ id, body, number, title, updated_at }) => (
+          <PostCard
+            key={id}
+            body={body}
+            number={number}
+            title={title}
+            updated_at={updated_at}
+          />
+        ))}
       </div>
+
+      <pre>{JSON.stringify(posts, null, 2)}</pre>
     </div>
   );
 }
