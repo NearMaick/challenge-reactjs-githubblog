@@ -10,8 +10,18 @@ interface Profile {
   followers: number;
 }
 
+interface Posts {
+  items: {
+    number: number;
+    title: string;
+    body: string;
+    updated_at: Date;
+  }[];
+}
+
 export function Blog() {
   const [profile, setProfile] = useState({} as Profile);
+  const [posts, setPosts] = useState({} as Posts);
 
   async function loadProfile() {
     const response = await fetch("https://api.github.com/users/nearmaick");
@@ -19,8 +29,16 @@ export function Blog() {
     setProfile(data);
   }
 
+  async function loadIssuesPosts() {
+    // const response = await fetch()
+  }
+
   useEffect(() => {
     loadProfile();
+  }, []);
+
+  useEffect(() => {
+    loadIssuesPosts();
   }, []);
 
   return (
