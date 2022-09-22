@@ -4,6 +4,8 @@ import { Post } from "../..";
 import styles from "./styles.module.css";
 
 export function PostCard({ body, title, number, updated_at }: Post) {
+  const bodyLimited = body.substring(0, 512).replace(/[#*]/g, "");
+
   return (
     <article>
       <div className={styles.content}>
@@ -15,7 +17,7 @@ export function PostCard({ body, title, number, updated_at }: Post) {
           })}
         </span>
       </div>
-      <p>{body}</p>
+      <p>{bodyLimited}...</p>
     </article>
   );
 }
