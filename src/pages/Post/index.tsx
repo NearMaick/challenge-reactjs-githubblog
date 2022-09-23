@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react";
+
 import { formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
+import remarkGfm from "remark-gfm";
+
 import styles from "./styles.module.css";
 
 interface PostProps {
@@ -55,9 +59,13 @@ export function Post() {
         </div>
       </main>
 
-      <article className={styles.postContent}>{issuePost.body}</article>
-
-      <pre>{JSON.stringify(issuePost, null, 2)}</pre>
+      <article className={styles.postContent}>
+        <ReactMarkdown
+          className={styles.issuePostContainer}
+          remarkPlugins={[remarkGfm]}
+          children={issuePost.body}
+        />
+      </article>
     </div>
   );
 }
