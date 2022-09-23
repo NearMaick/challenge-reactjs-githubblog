@@ -1,12 +1,38 @@
+import { formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.css";
 
+interface PostProps {
+  title: string;
+  user: {
+    login: string;
+  };
+  body: string;
+  comments: string;
+  updated_at: string;
+}
+
 export function Post() {
+  const [issuePost, setIssuePost] = useState({} as PostProps);
   const { postId } = useParams();
 
   // https://api.github.com/users/nearmaick
   // https://api.github.com/repos/NearMaick/challenge-reactjs-githubblog/issues
   // https://api.github.com/search/issues?q=Boas%20pr%C3%A1ticas%20repo:NearMaick/challenge-reactjs-githubblog
+
+  async function loadIssuePost() {
+    const response =
+      await fetch(`https://api.github.com/repos/NearMaick/challenge-reactjs-githubblog/issues/${postId}
+    `);
+    const data = await response.json();
+    setIssuePost(data);
+  }
+
+  useEffect(() => {
+    loadIssuePost();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -15,38 +41,23 @@ export function Post() {
           <a href='#'>voltar</a>
           <a href=''>ver no github</a>
         </div>
-        <h3>JavaScript data types and data structures</h3>
+        <h3>{issuePost.title}</h3>
         <div className={styles.descriptionContainer}>
-          <span>Maick Souza</span>
-          <span>Há 1 dia</span>
-          <span>5 comentários</span>
+          <span>{issuePost.user?.login}</span>
+          <span>
+            {issuePost.updated_at &&
+              formatDistanceToNow(new Date(issuePost.updated_at), {
+                addSuffix: true,
+                locale: ptBR,
+              })}
+          </span>
+          <span>{issuePost.comments} comentários</span>
         </div>
       </main>
 
-      <article className={styles.postContent}>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in JavaScript and what
-          properties they have. These can be used to build other data
-          structures. Wherever possible, comparisons with other languages are
-          drawn.
-        </p>
-        <h4>Dynamic typing</h4>
-        <p>
-          JavaScript is a loosely typed and dynamic language. Variables in
-          JavaScript are not directly associated with any particular value type,
-          and any variable can be assigned (and re-assigned) values of all
-          types:
-        </p>
-        <pre>
-          let foo = 42; // foo is now a number
-          <br />
-          foo = ‘bar’; // foo is now a string
-          <br />
-          foo = true; // foo is now a boolean
-        </pre>
-      </article>
+      <article className={styles.postContent}>{issuePost.body}</article>
+
+      <pre>{JSON.stringify(issuePost, null, 2)}</pre>
     </div>
   );
 }
